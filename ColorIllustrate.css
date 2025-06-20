@@ -13,7 +13,7 @@ body, html {
 }
 
 body {
-    background: url('img/ColorBG.png') center/cover no-repeat;
+    background: url('Img/ColorBG.png') center/cover no-repeat;
     position: relative;
     z-index: -3000;
 }

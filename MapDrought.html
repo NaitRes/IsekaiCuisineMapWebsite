@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" href="img/MaHouJin4.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Isekai Cuisine Map - Drought</title>
+    <link rel="stylesheet" href="MapDetailsTotal.css"/>
+</head>
+
+<body>
+<div id="Total-js"></div>
+
+<header class="Header"> ✡ ✡ ✡ - 世界地圖 ． 恆燃熱土 - ✡ ✡ ✡</header>
+
+<!--<section class="Intro fade-in-out">
+    <p>
+        在氣候與地形交織下，アクトラス分為九大區域，各自蘊藏獨特風貌與食材。<br><br>
+        選擇任一地區，展開你的探索之旅吧！每一處角落都等待著你親自揭開它們的神秘面紗。
+    </p>
+</section>-->
+
+<section class="RegionDetail">
+    <!-- 左半邊：大圖 -->
+    <div class="RegionImage">
+        <img src="img/DroughtOk.png" alt="恆燃熱土主視覺" />
+    </div>
+
+    <!-- 右半邊：地圖資訊與特色 -->
+    <div class="RegionText">
+        <h2>地圖資訊</h2>
+        <ul>
+            <br>
+            <li>位於アクトラス南方熔岩帶</li>
+            <br>
+            <li>地面裂縫流動著炙熱岩漿</li>
+            <br>
+            <li>天空終年被火雲遮蔽</li>
+            <br>
+        </ul>
+
+        <h2>地區特色</h2>
+        <ul>
+            <br>
+            <li>孕育高溫適應型魔獸</li>
+            <br>
+            <li>可採集火炎石與熔核花</li>
+            <br>
+            <li>傳說深處封印著古代炎龍</li>
+            <br>
+        </ul>
+    </div>
+</section>
+
+
+<section class="Remind fade-in-out"><p>點擊任意空白處，即可使背景變化</p></section>
+
+<!-- 音效 -->
+<audio id="SoundOfClick" src="Audio/Click.wav" preload="auto"></audio>
+<audio id="SoundOfHover" src="Audio/Hover.wav" preload="auto"></audio>
+<audio id="BGM" src="Audio/BurstWitch2.mp3" loop></audio>
+
+<!-- 粒子特效 -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="MapDetailsTotal.js"></script>
+</body>
+</html>

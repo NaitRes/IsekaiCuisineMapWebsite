@@ -1,0 +1,88 @@
+{
+  "particles": {
+    "number": {
+      "value": 150,
+      "density": {
+        "enable": true,
+        "value_area": 700
+      }
+    },
+    "color": {
+      "value": ["#FFFFFF", "#C8F0FF", "#A0AEC0", "#FFD700", "#8A2BE2"]
+    },
+
+    "shape": {
+      "type": "image",
+      "image": {
+        "src": "Img/MahouJin4.png",
+        "width": 1200,
+        "height": 1200
+      }
+    },
+
+    "opacity": {
+      "value": 0.7,
+      "random": true,
+      "anim": {
+        "enable": true,
+        "speed": 2.5,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 6,
+      "random": true,
+      "anim": {
+        "enable": true,
+        "speed": 6,
+        "size_min": 0.5,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": false
+    },
+    "move": {
+      "enable": true,
+      "speed": 3.5,
+      "direction": "none",
+      "random": true,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": true,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "bubble"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "repulse"
+      }
+    },
+    "modes": {
+      "bubble": {
+        "distance": 120,
+        "size": 6,
+        "duration": 2,
+        "opacity": 0.8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 150,
+        "duration": 0.7
+      }
+    }
+  },
+  "retina_detect": true
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" href="img/MaHouJin4.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Isekai Cuisine Map - Rock</title>
+    <link rel="stylesheet" href="MapDetailsTotal.css"/>
+</head>
+
+<body>
+<div id="Total-js"></div>
+
+<header class="Header"> ✡ ✡ ✡ - 料理食譜 ． 酥脆石塊 - ✡ ✡ ✡</header>
+
+<!--<section class="Intro fade-in-out">
+    <p>
+        在氣候與地形交織下，アクトラス分為九大區域，各自蘊藏獨特風貌與食材。<br><br>
+        選擇任一地區，展開你的探索之旅吧！每一處角落都等待著你親自揭開它們的神秘面紗。
+    </p>
+</section>-->
+
+<section class="RegionDetail">
+    <!-- 左半邊：大圖 -->
+    <div class="RegionImage">
+        <img src="img/FriedRockOk.png" alt="酥脆石塊主視覺" />
+    </div>
+
+    <!-- 右半邊：地圖資訊與特色 -->
+    <div class="RegionText">
+        <h2>所需食材</h2>
+        <ul>
+            <br>
+            <li>石堅碎塊 × 3 塊（碎成約 0.5 cm 顆粒）</li>
+            <br>
+            <li>少許鹽與香草（如百里香）</li>
+            <br>
+        </ul>
+
+        <h2>料理步驟</h2>
+        <ol>
+            <br>
+            <li>將石堅碎塊敲碎為小顆粒。</li>
+            <br>
+            <li>拌入鹽與香草。</li>
+            <br>
+            <li>平底鍋中小火烘烤 5 分鐘，翻面再烤 3 分鐘。</li>
+            <br>
+            <li>冷卻後成酥脆口感。</li>
+            <br>
+        </ol>
+    </div>
+</section>
+
+
+<section class="Remind fade-in-out"><p>點擊任意空白處，即可使背景變化</p></section>
+
+<!-- 音效 -->
+<audio id="SoundOfClick" src="Audio/Click.wav" preload="auto"></audio>
+<audio id="SoundOfHover" src="Audio/Hover.wav" preload="auto"></audio>
+<audio id="BGM" src="Audio/BurstWitch2.mp3" loop></audio>
+
+<!-- 粒子特效 -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="MapDetailsTotal.js"></script>
+</body>
+</html>

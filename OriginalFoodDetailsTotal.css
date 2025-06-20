@@ -1,0 +1,279 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    background-color: #02181c;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+body {
+    background: url('img/OriginalFoodBG.png') center/cover no-repeat;
+    position: relative;
+    z-index: -3000;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0), rgba(0,0,0,1));
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 10s ease;
+    z-index: 0;
+}
+
+body.Bg-Shown::before {
+    opacity: 0.3;
+}
+
+body.Bg-Shown .Remind {
+    color: rgba(205, 232, 247, 0);
+}
+
+#Total-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1000;
+}
+
+.Header {
+    text-align: center;
+    padding: 20px;
+    font-size: clamp(1.8rem, 1.8vw, 3rem);
+    font-weight: bold;
+    margin: 40px auto;
+    color: #ffffff;
+    max-width: 720px;
+}
+
+.Intro {
+    max-width: 960px;
+    margin: 1.5rem auto;
+    font-size: clamp(0.6rem, 1.2vw, 1.8rem);
+    text-align: center;
+    color: #cde8f7;
+    font-style: italic;
+}
+
+/* Buttons 容器用 grid 九宮格排列 */
+/* ...保留前面的通用樣式... */
+
+.Buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 90px;
+    width: 100%;         /* 改成 100% 寬度 */
+    max-width: 1200px;   /* 最大寬度限制 */
+    margin: 6rem auto 7rem auto;
+    justify-items: center;
+    padding: 0 20px;     /* 兩邊留一點邊距 */
+    box-sizing: border-box;
+}
+
+.ButtonWithImage { /* ✨ 新增：包裝圖片+按鈕 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%; /* 🔧 讓每個格子統一寬度 */
+
+}
+
+.ButtonWithImage a {
+    width: 100%;
+    display: block;           /* ✅ 讓按鈕填滿整個父容器 */
+}
+/* 按鈕樣式 */
+.Buttons a {
+    position: relative;
+    display: inline-block;
+    background: #30E3FF;
+    color: #02181c;
+    font-weight: bold;
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    padding: 14px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(48, 227, 255, 0.6);
+    text-decoration: none;
+    transition:
+            background-color 0.3s ease,
+            color 0.3s ease,
+            box-shadow 0.3s ease,
+            transform 0.2s ease;
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: visible;
+    /*margin: 9px;*/
+}
+
+/* Hover 和 glow 光暈效果 */
+.Buttons a:hover,
+.Buttons a.glow {
+    background-color: #0088BA;
+    color: #F6F7EB;
+    box-shadow: 0 0 24px 8px rgba(0, 136, 186, 0.8);
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+.Buttons a::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 15px;
+    background: linear-gradient(270deg, #02181c, #88EFFF, #02181c);
+    background-size: 600% 600%;
+    animation: borderShift 6s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.Buttons a:hover::before,
+.Buttons a.glow::before {
+    opacity: 1;
+}
+
+.Buttons a:active {
+    transform: scale(0.95);
+    box-shadow:
+            0 0 12px #02181c,
+            inset 0 0 15px #88EFFF;
+}
+
+/* Remind 提示文字 */
+.Remind {
+    max-width: 960px;
+    margin: 1.5rem auto 1.5rem;
+    font-size: clamp(0.3rem, 0.9vw, 1.5rem);
+    text-align: center;
+    color: #cde8f7;
+    font-style: italic;
+}
+
+/* 圖片樣式 */
+.ButtonWithImage img {
+    width: 100%;              /* ✅ 與 a 一樣寬 */
+    max-width: none;          /* ✅ 移除限制 */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+    z-index: -50;
+}
+
+.ButtonWithImage img:hover {
+    transform: scale(1.05);
+}
+
+/* glow class 的額外光暈 */
+.glow {
+    box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.7);
+    transition: box-shadow 0.3s ease;
+}
+
+/* 動畫與背景 */
+@keyframes fadeInOut {
+    0% { opacity: 0.9; }
+    50% { opacity: 0.1; }
+    100% { opacity: 0.9; }
+}
+
+.fade-in-out {
+    animation: fadeInOut 7s ease-in-out infinite;
+}
+
+@keyframes borderShift {
+    0% { background-position: 0% 100%; }
+    50% { background-position: 100% 0%; }
+    100% { background-position: 0% 100%; }
+}
+
+
+/*左右橫排*/
+/* 區塊左右排列 */
+.RegionDetail {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;                /* ✅ 允許換行 */
+    gap: 90px;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1800px;
+    margin: 0rem 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+}
+
+/* 左右各佔一半寬 */
+.RegionImage,
+.RegionText {
+    flex: 1 1 500px;                /* ✅ 彈性寬度 */
+    max-width: 660px;
+}
+
+/* 圖片樣式 */
+.RegionImage img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+/* 文字區塊 */
+.RegionText {
+    color: #cde8f7;
+    font-size: clamp(01.2rem, 1vw, 2.4rem);
+    line-height: 1.6;
+}
+
+.RegionText h2 {
+    font-size: clamp(1.2rem, 1.5vw, 2.4rem);
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    border-bottom: 2px solid #30E3FF;
+    padding-bottom: 0.3rem;
+}
+
+.RegionText ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/*@media (max-width: 768px) {
+    .RegionDetail {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .RegionImage,
+    .RegionText {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .RegionText {
+        text-align: center;
+    }
+
+    .RegionText ul {
+        padding-left: 1rem;
+    }
+}*/

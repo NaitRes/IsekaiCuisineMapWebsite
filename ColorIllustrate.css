@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    background-color: #02181c;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+body {
+    background: url('img/ColorBG.png') center/cover no-repeat;
+    position: relative;
+    z-index: -3000;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0), rgba(0,0,0,1));
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 10s ease;
+    z-index: 0;
+}
+
+body.Bg-Shown::before {
+    opacity: 0.3;
+}
+
+/* 當 body 擁有 Bg-Shown class 時，Remind 元素變透明 */
+body.Bg-Shown .Remind {
+    color: rgba(205, 232, 247, 0);
+}
+
+#Total-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1000;
+}
+
+.Header {
+    text-align: center;
+    padding: 20px;
+    font-size: clamp(1.8rem, 1.8vw, 3rem);
+    font-weight: bold;
+    margin: 40px auto;
+    color: #ffffff;
+    max-width: 720px;
+}
+
+.Intro {
+    max-width: 960px;
+    margin: 1.5rem auto;
+    font-size: clamp(0.6rem, 1.2vw, 1.8rem);
+    text-align: center;
+    color: #cde8f7;
+    font-style: italic;
+}
+
+/* 🎨 顏色展示區塊 */
+.Main-Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 900px;
+    /*max-height: 600px;*/
+    margin: 0.5rem auto;
+    padding: 1rem;
+}
+
+.ColorBlock {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.36);
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    color: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.ColorBlock .Swatch {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color);
+    border-radius: 8px;
+    margin-left: 150px;
+    margin-right: 50px;
+    border: 2px solid #fff;
+}
+
+.ColorBlock .Description h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--color);
+}
+
+.ColorBlock .Description p {
+    margin-top: 5px;
+    font-size: 0.95rem;
+}
+
+.Remind {
+    max-width: 960px;
+    margin: 0.0rem auto 0.0rem;
+    font-size: clamp(0.3rem, 0.9vw, 1.5rem);
+    text-align: center;
+    color: #cde8f7;
+    font-style: italic;
+}
+
+/* ✅ 保留動畫可用 */
+@keyframes fadeInOut {
+    0% { opacity: 0.9; }
+    50% { opacity: 0.1; }
+    100% { opacity: 0.9; }
+}
+
+.fade-in-out {
+    animation: fadeInOut 7s ease-in-out infinite;
+}

@@ -1,0 +1,298 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    background-color: #02181c;
+    /*background-color: #06353C;*/
+    color: #fff;
+    position: relative;
+    /*z-index: -3000;*/
+    overflow-x: hidden;
+}
+
+/*body {
+    (No background-image: url('https://q0.itc.cn/images01/20241230/0da193d8c0f84706955e953438fb685c.png');)
+    (No background-image: url('img/MenuBG.png');)
+    background-image:linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.0),rgba(0,0,0,1)),url('img/MenuBG.png'); R,G,B,A
+    background-size: cover;          覆蓋整個畫面
+    background-position: center;      置中
+    background-repeat: no-repeat;     不重複
+}
+
+body.Bg-Shown {
+    background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0),rgba(0,0,0,0.0)), url('img/MenuBG.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background 10s ease;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0; /* top:0; right:0; bottom:0; left:0;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 1s ease;
+    z-index: 0;
+}
+
+body.Bg-Shown::before {
+    opacity: 0;
+} Test!!!!! */
+
+
+body {
+    background: url('img/MenuBG.png') center/cover no-repeat;  /* 背景圖片設定，置中(center)、覆蓋整個視窗(cover)、不重複(no-repeat) */
+    position: relative;/* 相對定位，為偽元素或其他絕對定位元素提供參考點 */
+    z-index: -3000;
+}
+
+body::before {
+    content: ""; /* 產生一個空內容的偽元素，用來當遮罩 */
+    position: fixed;/* 固定定位，讓偽元素固定在視窗上，不會隨滾動移動 */
+    inset: 0;/* 四邊距離設為0，讓偽元素填滿整個視窗 */
+    background: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0), rgba(0,0,0,1)); /* 線性漸層遮罩，從黑色不透明(1)到透明(0)再回到黑色不透明(1) */
+    pointer-events: none;/* 禁止偽元素攔截滑鼠事件，讓點擊可以穿透至下層元素 */
+    opacity: 1;/* 初始透明度為1，表示遮罩完全可見 */
+    transition: opacity 10s ease;/* 透明度變化時，動畫效果為10秒緩慢過渡，使用ease曲線 */
+    z-index: 0;/* 層級為0，確保遮罩在背景圖上方但不蓋過其他內容 */
+}
+
+body.Bg-Shown::before {
+    opacity: 0.3;/* 加入 Bg-Shown class 後，遮罩透明度變成0，遮罩逐漸消失 */
+}
+
+/* 當 body 擁有 Bg-Shown class 時，Remind 元素變透明 */
+body.Bg-Shown .Remind {
+    color: rgba(205, 232, 247, 0);
+}
+
+
+#Total-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1000; /* 放在最底層 */
+}
+
+.Header {
+    background-color: rgba(246, 247, 235, 0);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-size: clamp(1.8rem, 1.8vw, 3rem);
+    font-weight: bold;
+    max-width: 720px;
+    margin: 40px auto;
+    border-radius: 12px;
+}
+
+.Intro {
+    max-width: 960px;
+    margin: 1.5rem auto 1.5rem;
+    font-size: clamp(0.6rem, 1.2vw, 1.8rem);
+    text-align: center;
+    color: #cde8f7;
+    font-style: italic;
+}
+
+
+.Main-Content {
+    display: inline-flex;         /* 讓容器根據內容寬度自動縮小 */
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(6, 53, 60, 0);    /* 保留背景色 */
+    /*padding: 30px 40px;*/
+    /*border-radius: 12px;*/
+    position: relative;
+    z-index: 1;
+
+    /* ✅ 這兩個設定讓它置中 */
+    /*position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);*/
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 12%;             /* 最多佔 90% 螢幕寬 */
+    max-width: 600px;       /* 不超過 720px */
+    margin: 0rem auto 0;    /* 自動水平置中 */
+    height: 60%;
+    max-width: 360px;
+    margin: 0rem auto 0;
+}
+
+
+
+.Buttons {
+    display: flex;
+    gap: 0px;
+    margin-top: 30px;
+    margin-bottom: 30px;/* 下方增加空白空間，整體佔用空間變大，但元素本身框大小不變 */
+    background-color: rgba(6, 53, 60, 0); /* ✅ 半透明背景，只包按鈕 */
+    padding: 10px;/* 與內部維持距離，整體佔用空間變大，且元素本身框變大*/
+    border-radius: 12px;
+}
+
+
+.Buttons a {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, #88EFFF 0%, #0088BA 100%);
+    color: #000;
+    text-decoration: none;
+    padding: 15px 36px;
+    border-radius: 12px;
+    font-size: clamp(0.6rem, 1.2vw, 1.8rem);
+    font-weight: 700;
+    overflow: hidden;
+    transition: transform 0.3s ease, color 0.3s ease;
+    box-shadow:
+            0 0 8px #0088BA,
+            inset 0 0 10px #88EFFF;
+}
+
+/* 基本放大+背景變色 */
+.Buttons a:hover {
+    transform: scale(1.1); /* 放大效果 */
+    cursor: pointer;
+    color: #F6F7EB;
+    background-color: #0088BA;
+}
+
+/* 光暈效果 */
+/*.Buttons a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 80%);
+    border-radius: 10px;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.4s ease;
+    pointer-events: none;
+}Test*/
+
+.Buttons a::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 15px;
+    background: linear-gradient(270deg, #02181c, #88EFFF, #02181c);
+    background-size: 600% 600%;
+    animation: borderShift 6s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.Buttons a:hover::before {
+    /*transform: translate(-50%, -50%) scale(1);*/
+    opacity: 1;
+}
+
+.Buttons a:active {
+    transform: scale(0.95);
+    box-shadow:
+            0 0 12px #02181c,
+            inset 0 0 15px #88EFFF;
+}
+
+.Remind {
+    max-width: 960px;
+    margin: 1.5rem auto 1.5rem;
+    font-size: clamp(0.3rem, 0.9vw, 1.5rem);
+    text-align: center;
+    color: #cde8f7;
+    font-style: italic;
+}
+
+
+.Images {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Images img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #88EFFF;
+}
+
+
+.fade-in-out {
+    animation: fadeInOut 7s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 0.9;
+    }
+}
+
+@keyframes borderShift {
+    0% { background-position: 0% 100%; }
+    50% { background-position: 100% 0%; }
+    100% { background-position: 0% 100%; }
+}
+
+
+@keyframes rotateMagic {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes colorShift {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+.Magic-Circle-Overlay {
+    position: fixed;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    opacity: 0.4;
+    pointer-events: auto;
+    z-index: -10;
+
+    animation: rotateMagic 20s linear infinite, colorShift 15s linear infinite;
+    transition: transform 0.5s ease, animation-duration 0.3s ease;
+}
+
+.Magic-Circle-Overlay:hover {
+    transform: translate(-50%, -50%) scale(1.2) rotate(0deg); /* scale 放大 */
+    animation: rotateMagic 5s linear infinite, colorShift 1.5s linear infinite; /* 加快速度 */
+}
+

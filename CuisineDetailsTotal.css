@@ -13,7 +13,7 @@ body, html {
 }
 
 body {
-    background: url('Img/CuisineBG.png') center/cover no-repeat;
+    background: url('Img/MapBG.png') center/cover no-repeat;
     position: relative;
     z-index: -3000;
 }

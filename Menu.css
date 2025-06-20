@@ -49,7 +49,7 @@ body.Bg-Shown::before {
 
 
 body {
-    background: url('img/MenuBG.png') center/cover no-repeat;  /* 背景圖片設定，置中(center)、覆蓋整個視窗(cover)、不重複(no-repeat) */
+    background: url('Img/MenuBG.png') center/cover no-repeat;  /* 背景圖片設定，置中(center)、覆蓋整個視窗(cover)、不重複(no-repeat) */
     position: relative;/* 相對定位，為偽元素或其他絕對定位元素提供參考點 */
     z-index: -3000;
 }
